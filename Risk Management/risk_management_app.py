@@ -197,10 +197,10 @@ def make_whatif_chart():
 
 # APP
 
-app = Dash(__name__)
-app.title = "Home Credit Default Risk — Findings Dashboard"
+RiskMan = Dash(__name__)
+RiskMan.title = "Home Credit Default Risk — Findings Dashboard"
 
-app.index_string = """
+RiskMan.index_string = """
 <!DOCTYPE html>
 <html>
     <head>
@@ -375,7 +375,7 @@ footer = html.Footer([
 ], style={**SECTION_STYLE, "borderBottom": "none"})
 
 
-app.layout = html.Div([
+RiskMan.layout = html.Div([
     header, imbalance_section, model_section, drivers_section,
     fairness_section, whatif_section, reco_section, footer,
 ], style={"fontFamily": FONT_FAMILY, "color": COLORS["ink"], "background": COLORS["paper"]})
@@ -383,12 +383,12 @@ app.layout = html.Div([
 
 # CALLBACK APP
 
-@app.callback(Output("model-chart", "figure"), Input("model-metric", "value"))
+@RiskMan.callback(Output("model-chart", "figure"), Input("model-metric", "value"))
 def update_model_chart(metric):
     return make_model_chart(metric)
 
 
-@app.callback(
+@RiskMan.callback(
     Output("subgroup-chart", "figure"),
     Output("subgroup-callout", "children"),
     Input("subgroup-choice", "value"),
@@ -400,9 +400,9 @@ def update_subgroup_chart(group):
                             "fontSize": "14.5px", "lineHeight": "1.6", "marginTop": "8px"})
     return fig, text
 
-server = app.server
+server = RiskMan.server
 if __name__ == "__main__":
-    app.run(
+    RiskMan.run(
         host="0.0.0.0",
         port=int(os.environ.get("PORT", 8052)),
         debug=False
