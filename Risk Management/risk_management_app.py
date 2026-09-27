@@ -400,7 +400,7 @@ def update_subgroup_chart(group):
                             "fontSize": "14.5px", "lineHeight": "1.6", "marginTop": "8px"})
     return fig, text
 
-
+server = app.server
 if __name__ == "__main__":
     app.run(
         host="0.0.0.0",
