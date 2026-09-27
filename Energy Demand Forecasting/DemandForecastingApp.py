@@ -194,10 +194,10 @@ def make_quartile_chart():
 
 # APP
 
-app = Dash(__name__)
-app.title = "Denmark Electricity Demand — Forecasting Dashboard"
+DemandForecasting = Dash(__name__)
+DemandForecasting.title = "Denmark Electricity Demand — Forecasting Dashboard"
 
-app.index_string = """
+DemandForecasting.index_string = """
 <!DOCTYPE html>
 <html>
     <head>
@@ -414,25 +414,25 @@ footer = html.Footer([
 ], style={**SECTION_STYLE, "borderBottom": "none"})
 
 
-app.layout = html.Div([
+DemandForecasting.layout = html.Div([
     header, overview_section, patterns_section, error_section, benchmark_section,
     shap_section, quartile_section, extremes_section, reco_section, footer,
 ], style={"fontFamily": FONT_FAMILY, "color": COLORS["ink"], "background": COLORS["paper"]})
 
 
 # APP
-@app.callback(Output("error-chart", "figure"), Input("error-view", "value"))
+@DemandForecasting.callback(Output("error-chart", "figure"), Input("error-view", "value"))
 def update_error_chart(view):
     return make_error_chart(view)
 
 
-@app.callback(Output("method-chart", "figure"), Input("metric-choice", "value"))
+@DemandForecasting.callback(Output("method-chart", "figure"), Input("metric-choice", "value"))
 def update_method_chart(metric):
     return make_method_chart(metric)
 
-
+server = DemandForecasting
 if __name__ == "__main__":
-    app.run(
+    DemandForecasting.run(
         host="0.0.0.0",
         port=int(os.environ.get("PORT", 8051)),
         debug=False

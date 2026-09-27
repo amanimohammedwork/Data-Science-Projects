@@ -247,10 +247,10 @@ def illustrative_score(age, country, balance, active, gender):
 
 # APP 
 
-app = Dash(__name__)
-app.title = "Bank Customer Churn — Findings Dashboard"
+BankingApp = Dash(__name__)
+BankingApp.title = "Bank Customer Churn — Findings Dashboard"
 
-app.index_string = """
+BankingApp.index_string = """
 <!DOCTYPE html>
 <html>
     <head>
@@ -461,7 +461,7 @@ reco_section = html.Section([
 ], style=SECTION_STYLE)
 
 
-app.layout = html.Div([
+BankingApp.layout = html.Div([
     header, snapshot_section, drivers_section, model_section,
     shap_section, simulator_section, reco_section,
 ], style={"fontFamily": FONT_FAMILY, "color": COLORS["ink"], "background": COLORS["paper"]})
@@ -469,7 +469,7 @@ app.layout = html.Div([
 
 # CALLBACK
 
-@app.callback(
+@BankingApp.callback(
     Output("metric-acc", "children"),
     Output("metric-prec", "children"),
     Output("metric-rec", "children"),
@@ -489,7 +489,7 @@ def update_model(model_key):
     )
 
 
-@app.callback(
+@BankingApp.callback(
     Output("score-gauge", "figure"),
     Input("sim-age", "value"),
     Input("sim-country", "value"),
@@ -501,11 +501,12 @@ def update_score(age, country, balance, active, gender):
     score = illustrative_score(age, country, balance, active, gender)
     return make_score_gauge(score)
 
+server = BankingApp.server
+
 if __name__ == "__main__":
-    app.run(
+    BankingApp.run(
         host="0.0.0.0",
         port=int(os.environ.get("PORT", 8050)),
         debug=False
     )
 
-# hiii
