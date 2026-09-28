@@ -20,8 +20,6 @@ Each project is a self-contained Jupyter notebook: data exploration → feature 
 
 ## 1. Bank Customer Churn Prediction
 
-📓 `Banking.ipynb`
-
 **Goal:** Identify which bank customers are likely to leave, and why, so the bank can target retention efforts before revenue is lost.
 
 **Data:** [Bank Customer Churn Dataset](https://www.kaggle.com/datasets/gauravtopre/bank-customer-churn-dataset) (Kaggle), with customer age, gender, country, tenure, balance, credit score, number of products, and active-member status. About 20% of customers churned.
@@ -51,7 +49,6 @@ XGBoost reaches an ROC-AUC of 0.87. Logistic Regression catches more churners (h
 
 ## 2. Credit Default Risk (Home Credit)
 
-📓 `Risk_mangement.ipynb`
 
 **Goal:** Predict the probability that a loan applicant will default, and build the tooling a risk team would want around such a model: calibration, subgroup checks, applicant-level explanations, and what-if analysis.
 
@@ -78,7 +75,6 @@ XGBoost reaches an ROC-AUC of 0.87. Logistic Regression catches more churners (h
 
 ## 3. Electricity Demand Forecasting (Denmark)
 
-📓 `Demand_Forecasting.ipynb`
 
 **Goal:** Measure how accurate the official ENTSO-E day-ahead load forecast is for Denmark's two bidding zones (DK1 and DK2), find out when forecasting is hardest, and test whether an ML model can beat it.
 
@@ -111,8 +107,6 @@ XGBoost improves on ENTSO-E by **19.8% (MAE)**, **35.7% (RMSE)** and **42.4% (95
 
 ## 4. Negative Customer Feedback Classification (Danish)
 
-📓 `NegativeCustomerFeedback.ipynb`
-
 **Goal:** Automatically sort low-rated Danish customer reviews into the type of complaint, so a business can see what to fix first.
 
 **Data:** 100 randomly sampled 1–2 star reviews from the [Danish reviews dataset](https://github.com/AlessandroGianfelici/danish_reviews_dataset), hand-labelled into six categories:
@@ -143,7 +137,6 @@ XGBoost improves on ENTSO-E by **19.8% (MAE)**, **35.7% (RMSE)** and **42.4% (95
 
 ## 5. Plant Disease Recognition
 
-📓 `PlantDiseaseRecognition.ipynb`
 
 **Goal:** Classify leaf images into 38 crop-disease/healthy classes, and compare model families on accuracy and efficiency.
 
@@ -178,7 +171,7 @@ XGBoost improves on ENTSO-E by **19.8% (MAE)**, **35.7% (RMSE)** and **42.4% (95
 - **NLP & LLMs:** Hugging Face Transformers, Datasets, `bitsandbytes` (4-bit quantisation)
 - **Computer vision:** OpenCV, Pillow
 - **Explainability:** SHAP
-- **Other:** `holidays` (Danish public holidays), `kagglehub` (dataset download)
+- **Other:** `holidays` (Danish public holidays), `kagglehub` 
 
 
 ## Repository structure
