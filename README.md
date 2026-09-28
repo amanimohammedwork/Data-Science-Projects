@@ -167,8 +167,6 @@ XGBoost improves on ENTSO-E by **19.8% (MAE)**, **35.7% (RMSE)** and **42.4% (95
 
 **Takeaway:** Lightweight pretrained models get to ~94–95% quickly. MobileNetV2 matches or beats ResNet-18 while being far smaller, and fine-tuning adds only a small gain over frozen features.
 
-> 🚧 **Status:** the custom-CNN tuning comparison and the autoencoder-downstream-classifier section are still in progress.
-
 ---
 
 ## Tech stack
@@ -182,31 +180,6 @@ XGBoost improves on ENTSO-E by **19.8% (MAE)**, **35.7% (RMSE)** and **42.4% (95
 - **Explainability:** SHAP
 - **Other:** `holidays` (Danish public holidays), `kagglehub` (dataset download)
 
-## Getting started
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
-
-# 2. Create an environment and install dependencies
-python -m venv .venv
-source .venv/bin/activate          # Windows: .venv\Scripts\activate
-pip install pandas numpy scipy matplotlib seaborn plotly scikit-learn \
-            xgboost lightgbm shap holidays kagglehub jupyter \
-            torch torchvision tensorflow opencv-python pillow \
-            transformers datasets evaluate accelerate bitsandbytes
-
-# 3. Launch Jupyter and open a notebook
-jupyter lab
-```
-
-**Data access**
-- **Kaggle datasets** (Banking, Risk, Plant Disease): notebooks download via `kagglehub`. You'll need a free Kaggle account, and for the Home Credit competition you must first accept the rules on Kaggle.
-- **Demand forecasting:** download the DK1 and DK2 *Total Load – Day Ahead / Actual* CSVs from the [ENTSO-E Transparency Platform](https://transparency.entsoe.eu/) and save them as `DK1.csv` and `DK2.csv` next to the notebook.
-- **Danish reviews:** loaded directly from GitHub inside the notebook.
-
-**Hardware:** the NLP and computer-vision notebooks are designed for a GPU (Google Colab or a local CUDA card). The tabular and forecasting notebooks run fine on a laptop CPU.
 
 ## Repository structure
 ```
